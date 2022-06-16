@@ -2,6 +2,7 @@ package es.johnsunday.springsecurity.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 /**
  * With Spring Security version 5.7.1:
@@ -27,4 +28,21 @@ public class SecurityAppConfig extends WebSecurityConfigurerAdapter {
 		.withUser(users.username("manuela").password("789").roles("ayudante"))
 		.withUser(users.username("antonio").password("321").roles("administrador"));		
 	}
+
+	// Method to configure our web security(login,logout,etc).
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http
+		.authorizeRequests()
+		.anyRequest()
+		.authenticated()
+		.and()
+		.formLogin()
+		// Login page.
+		.loginPage("/myLoginForm")
+		// Login Url.
+		.loginProcessingUrl("/userAuthentication")
+		.permitAll();
+	}
+	
 }

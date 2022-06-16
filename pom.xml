@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>es.johnsunday</groupId>
-  <artifactId>vid_93_Spring_Security</artifactId>
+  <artifactId>vid_093_Spring_Security</artifactId>
   <version>0.0.1</version>
   
   <packaging>war</packaging>
