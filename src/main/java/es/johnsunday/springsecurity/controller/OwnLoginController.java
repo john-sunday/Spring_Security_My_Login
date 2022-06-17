@@ -8,6 +8,6 @@ public class OwnLoginController {
 	
 	@GetMapping("/myLoginForm")
 	public String showOwnLoginForm() {		
-		return "own_login";
+		return "bootsnipp.com_login";
 	}
 }
