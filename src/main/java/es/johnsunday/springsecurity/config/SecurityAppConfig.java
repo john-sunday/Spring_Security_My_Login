@@ -23,19 +23,24 @@ public class SecurityAppConfig extends WebSecurityConfigurerAdapter {
 		UserBuilder users = User.withDefaultPasswordEncoder();
 		// Cargamos usuarios en memoria.
 		auth.inMemoryAuthentication()
-		.withUser(users.username("juan").password("123").roles("administrador"))
-		.withUser(users.username("maria").password("456").roles("usuario"))
-		.withUser(users.username("manuela").password("789").roles("ayudante"))
-		.withUser(users.username("antonio").password("321").roles("administrador"));		
+		.withUser(users.username("juan").password("123").roles("user","admin"))
+		.withUser(users.username("maria").password("456").roles("user"))
+		.withUser(users.username("manuela").password("789").roles("user","assistant"))
+		.withUser(users.username("antonio").password("321").roles("user","admin"));		
 	}
 
 	// Method to configure our web security(login,logout,etc).
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
+		/*
+		 * .authorizeRequests() .anyRequest() .authenticated() .and() .formLogin()
+		 */
 		.authorizeRequests()
-		.anyRequest()
-		.authenticated()
+		.antMatchers("/")
+		.hasRole("user")
+		.antMatchers("/administrators/**")
+		.hasRole("admin")
 		.and()
 		.formLogin()
 		// Login page.

@@ -10,4 +10,10 @@ public class OwnLoginController {
 	public String showOwnLoginForm() {		
 		return "bootsnipp.com_login";
 	}
+	
+	// Agregate mapping to administrators.
+	@GetMapping("/administrators")
+	public String showAdministrators() {		
+		return "administrators";
+	}
 }

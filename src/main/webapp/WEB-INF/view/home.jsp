@@ -21,6 +21,11 @@
 	<br>
 	Rol: <security:authentication property="principal.authorities"/>
 	</p>
+	<br>
+	<!-- Administrators link -->
+	<p>
+	<a href="${pageContext.request.contextPath }/administrators">Go to administrators zone</a>
+	</p>
 	
 	<form:form action="${pageContext.request.contextPath}/logout" method="POST">
 		<input type="submit" value="Log Out">
