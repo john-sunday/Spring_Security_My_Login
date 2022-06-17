@@ -9,9 +9,9 @@
 <meta charset="UTF-8">
 <title>Own Form Login</title>
 <style>
-	.errorFormat{
-	color:red;	
-	}
+.errorFormat{
+color:red;	
+}
 </style>
 
 </head>

@@ -235,6 +235,10 @@ input[type=text]:placeholder {
 .errorFormat{
 color:red;	
 }
+.logoutFormat{
+color:green;
+font-weight:bold;	
+}
 </style>
 </head>
 <body>
@@ -247,6 +251,9 @@ color:red;
     <div class="fadeIn first">
     	<c:if test="${param.error!=null}">
 			<strong class="errorFormat">Username and/or password INCORRECT !!!</strong>
+		</c:if>
+		<c:if test="${param.logout!=null}">
+			<strong class="logoutFormat">You have done LOG OUT</strong>
 		</c:if>
     </div>
 

@@ -42,6 +42,10 @@ public class SecurityAppConfig extends WebSecurityConfigurerAdapter {
 		.loginPage("/myLoginForm")
 		// Login Url.
 		.loginProcessingUrl("/userAuthentication")
+		.permitAll()
+		// Vídeo 98. Logout
+		.and()
+		.logout()
 		.permitAll();
 	}
 	
